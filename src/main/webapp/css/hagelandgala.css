@@ -1,0 +1,42 @@
+body {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    line-height: 1.428571429;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+#carousel-top {
+    height: 300px;
+    width: 100%;
+}
+
+#carousel-top .item > img,
+#carousel-top .item > a > img {
+    width: 80%;
+    height: 300px;
+}
+
+#carousel-locatie .item > img,
+#carousel-locatie .item > a > img {
+    width: 80%;
+    height: 500px;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    margin: auto;
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+}
+
+.gala-busdienst,
+.gala-adres,
+.gala-menu {
+    text-align: center;
+    background-color: #fff9c2;
+}
+
+.gala-prijs {
+    text-align: center;
+}

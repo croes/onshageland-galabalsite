@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <application>${app.id}</application>
+    <version>${app.version}</version>
+    <threadsafe>true</threadsafe>
+
+    <automatic-scaling>
+        <min-idle-instances>1</min-idle-instances>
+        <!-- ‘automatic’ is the default value. -->
+        <max-idle-instances>automatic</max-idle-instances>
+        <!-- ‘automatic’ is the default value. -->
+        <min-pending-latency>100ms</min-pending-latency>
+        <max-pending-latency>automatic</max-pending-latency>
+        <max-concurrent-requests>50</max-concurrent-requests>
+    </automatic-scaling>
+    
+    <system-properties>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    </system-properties>
+</appengine-web-app>
