@@ -6,6 +6,14 @@ body {
     background-color: #ffffff;
 }
 
+.aanhef {
+    font-style: italic;
+}
+
+.onderschrijving {
+    font-style: italic
+}
+
 #carousel-top {
     height: 300px;
     width: 100%;
