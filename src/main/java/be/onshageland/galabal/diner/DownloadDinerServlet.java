@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
-import static com.googlecode.objectify.ObjectifyService.ofy;
+import static be.onshageland.galabal.OfyService.ofy;
 
 public class DownloadDinerServlet extends HttpServlet {
 
