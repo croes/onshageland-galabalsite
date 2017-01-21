@@ -18,19 +18,17 @@
             String firstName = request.getParameter("firstNameBus" + i);
             String lastName = request.getParameter("lastNameBus" + i);
             String email = request.getParameter("emailBus" + i);
-            BusRegistrationEntry.PaymentMethod paymentMethod = BusRegistrationEntry.PaymentMethod.parseString(request.getParameter("paymentMethodBus" + i));
 
             if (firstName == null ||
                     lastName == null ||
-                    email == null ||
-                    paymentMethod == null) {
+                    email == null) {
                 throw new IllegalArgumentException("One of the parameters is invalid!");
             }
             BusRegistrationEntry busRegistrationEntry = new BusRegistrationEntry(
                     firstName,
                     lastName,
                     email,
-                    paymentMethod
+                    BusRegistrationEntry.PaymentMethod.CASH
             );
 
             registrationEntries.add(busRegistrationEntry);
@@ -38,7 +36,6 @@
 
 
         ofy().save().entities(registrationEntries).now();
-
 %>
 
 
@@ -54,8 +51,6 @@
         <th>Voornaam</th>
         <th>Naam</th>
         <th>Email</th>
-        <th>Betaalmethode</th>
-        <th>Prijs</th>
     </tr>
     </thead>
     <%
@@ -65,62 +60,33 @@
         String transferComment = "Bus -";
         for (BusRegistrationEntry entry : registrationEntries) {
     %>
-    <tr>
-        <td><%=i%>
-        </td>
-        <td><%=entry.getFirstName()%>
-        </td>
-        <td><%=entry.getLastName()%>
-        </td>
-        <td><%=entry.getEmailAddress()%>
-        </td>
-        <td><%=entry.getPaymentMethod().toString()%>
-        </td>
-        <td>5,00</td>
-    </tr>
+            <tr>
+                <td><%=i%>
+                </td>
+                <td><%=entry.getFirstName()%>
+                </td>
+                <td><%=entry.getLastName()%>
+                </td>
+                <td><%=entry.getEmailAddress()%>
+                </td>
+            </tr>
     <%
-            if (entry.getPaymentMethod() == BusRegistrationEntry.PaymentMethod.CASH) {
-                nbOfPersonsCash++;
-            }
-            if (entry.getPaymentMethod() == BusRegistrationEntry.PaymentMethod.TRANSFER) {
-                nbOfPersonsTransfer++;
-                transferComment = transferComment + " "
-                        + entry.getFirstName().substring(0, 1) + ". " + entry.getLastName();
-            }
-            i++;
-        }
+        i++;
+    }
     %>
 </table>
-
-<%
-    if (nbOfPersonsCash > 0) {
-%>
-<p>Gelieve <b><%=nbOfPersonsCash * 5%>,00 euro cash</b> te betalen bij het vertrek van de bus. (<%=nbOfPersonsCash%>
-    personen aan 5,00
-    euro pp.)</p>
-<%
-    }
-
-    if (nbOfPersonsTransfer > 0) { %>
-<p>Gelieve <b><%=nbOfPersonsTransfer * 5%>,00 euro over te schrijven</b> op rekeningnummer <b>BE37 0689 0301 1928</b>
-    ter attentie van <b>Ons Hageland</b>,
-    met mededeling <b><%=transferComment%>
-    </b>. (<%=nbOfPersonsTransfer%> personen aan 5,00 euro pp.)</p>
-<%
-    }
-%>
 
 <%
 } catch (Exception e) {
 %>
 
-<h1>Oops!</h1>
+    <h1>Oops!</h1>
 
-<p>Onze excuses, er iets misgelopen bij het noteren van je reservatie.</p>
-<p>Gelieve je reservatie per email door te sturen naar onze senior via <b>senior@onshageland.be</b></p>
-        <%
-    }
-    %>
+    <p>Onze excuses, er iets misgelopen bij het noteren van je reservatie.</p>
+    <p>Gelieve je reservatie per email door te sturen naar onze senior via <b>senior@onshageland.be</b></p>
+<%
+}
+%>
 <p><a href="/index.html">Ga terug naar de website</a></p>
 </body>
 </html>

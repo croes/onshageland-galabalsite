@@ -133,6 +133,7 @@
 
 
     <div class="container content" id="welkom">
+        <h1>Galabal KVHC Ons Hageland-Bessemclub 2017</h1>
         <p class="aanhef">
         Hooggeachte oud-Seniores, <br/>
         Eerwaarde commilitones & oud-commilitones, <br/>
@@ -150,8 +151,8 @@
         <img src="/img/sfeer/15.jpg" width="88%" style="margin-left:5%; margin-right=5%"/>
 
         <p>
-        Via deze site kan u informatie over het diner, het avondfeest en de busdiensten raadplegen.
-        U kan zich ook inschrijven voor het diner of een van de busdiensten.
+            Via deze site kan u informatie over het <a href="#diner" onclick='openPage("#diner")'>diner</a>, het <a href="#avondfeest" onclick='openPage("#avondfeest")'>avondfeest</a>
+            en de busdiensten (<a href="#busdiest-avondfeest" onclick='openPage("#avondfeest")'>avondfeest</a>, <a href="#busdienst-diner" onclick='openPage("#diner")'>diner)</a> raadplegen.
         </p>
 
         <p>
@@ -201,7 +202,7 @@
             <p>Koffie en culinaire proevertjes</p>
         </div>
 
-        <h2>
+        <h2 id="busdienst-diner">
             Busdienst diner
         </h2>
 
@@ -307,7 +308,7 @@
             Het enige wat u hoeft te doen is uw avondkledij aantrekken en komen genieten van een heerlijke avond!
         </p>
 
-        <h1 style="text-align: center;">Busdienst avondfeest</h1>
+        <h1 style="text-align: center;" id="busdienst-avondfeest">Busdienst avondfeest</h1>
 
         <p class="gala-busdienst lead">
             Ladeuzeplein, Leuven – De Waterhoek, Geetbets <br/>
@@ -430,17 +431,13 @@
     <h1>Sponsors</h1>
     <div class="row">
         <div class="col-xs-12 col-md-6"><img src="img/sponsors/weymiens.png"></div>
-        <div class="col-xs-12 col-md-6"><img src="img/sponsors/plafonneringswerken.png"></div>
+        <!--<div class="col-xs-12 col-md-6"><img src="img/sponsors/plafonneringswerken.png"></div>-->
+        <div class="col-xs-12 col-md-6"><a href="http://sophimo.be"><img src="img/sponsors/century21.jpg"></a></div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6"><a href="http://vdgtechnieken.be"><img src="img/sponsors/vdg.jpg"></a></div>
         <div class="col-xs-12 col-md-6"><a href="http://yellowselectie.be"><img src="img/sponsors/yellow.jpg"></a></div>
     </div>
-    <div class="row">
-        <div class="col-xs-12"><a href="http://sophimo.be"><img src="img/sponsors/century21.jpg"></a></div>
-    </div>
-
-
 </div>
 
 </div><!-- /.container -->
@@ -518,8 +515,10 @@
         var url = window.location.href;
         var regex = /#[A-Za-z0-9_]*$/;
         var match = regex.exec(url);
-        if (match[0]) {
+        if ( match && match[0]) {
             openPage(match[0]);
+        } else {
+            openPage('#welkom');
         }
     });
 </script>

@@ -90,7 +90,7 @@
     %>
 </table>
     <% if (nbOfPersonsTransfer > 0) { %>
-<p>Gelieve <b><%=nbOfPersonsTransfer * 60%>,00 euro over te schrijven</b> op rekeningnummer <b>BE37 0689 0301 1928</b>
+<p>Gelieve <b><%=nbOfPersonsTransfer * 60%>,00 euro over te schrijven</b> op rekeningnummer <b>BE92 3770 1835 1023</b>
     ter attentie van <b>Ons Hageland</b>,
     met mededeling <b><%=transferComment%>
     </b>. (<%=nbOfPersonsTransfer%> personen aan 60,00 euro pp.)</p>
