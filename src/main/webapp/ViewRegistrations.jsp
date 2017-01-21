@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="static com.googlecode.objectify.ObjectifyService.ofy" %>
+<%@ page import="static be.onshageland.galabal.OfyService.ofy" %>
 <%@ page import="be.onshageland.galabal.diner.DinerRegistrationEntry" %><%--
   Created by IntelliJ IDEA.
   User: Glenn
@@ -8,6 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Inschrijvingen</title>

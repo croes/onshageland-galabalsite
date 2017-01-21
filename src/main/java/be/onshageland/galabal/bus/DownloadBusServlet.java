@@ -26,15 +26,13 @@ public class DownloadBusServlet extends HttpServlet {
             String outputResult = "\"Identificatienummer\"" + SEPERATOR +
                     "\"Voornaam\"" + SEPERATOR +
                     "\"Naam\"" + SEPERATOR +
-                    "\"Email\"" + SEPERATOR +
-                    "\"Betaalmethode\"\n";
+                    "\"Email\"\n";
             outputStream.write(outputResult.getBytes());
             for (BusRegistrationEntry entry : registrationEntries) {
                 String line = "\"" + entry.getId() + "\"" + SEPERATOR +
                         "\"" + entry.getFirstName() + "\"" + SEPERATOR +
                         "\"" + entry.getLastName() + "\"" + SEPERATOR +
-                        "\"" + entry.getEmailAddress() + "\"" + SEPERATOR +
-                        "\"" + entry.getPaymentMethod().toString() + "\"\n";
+                        "\"" + entry.getEmailAddress() + "\"\n";
                 outputStream.write(line.getBytes());
             }
             outputStream.flush();
